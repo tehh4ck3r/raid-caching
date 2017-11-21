@@ -1,22 +1,10 @@
-from __future__ import division
+from bins import bins
 import sys
-import math
 
 class page:
 	def __init__(self, val, ref):
 		self.value = val
 		self.referenced = ref
-
-# given a maximum value, a number of bins, and an input value, returns the bin to which the input value belongs (from range 0 -> num_bins-1)
-def bins(max_value, num_bins, x):
-	bin_size = math.ceil(max_value / num_bins)
-	increment = 0
-
-	for z in range(num_bins):
-		if (0 < x <= increment+bin_size):
-			return z
-		else:
-			increment += bin_size
 
 def main(argv):
 	if len(sys.argv) != 4:

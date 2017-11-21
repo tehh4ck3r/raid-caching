@@ -17,7 +17,7 @@ def bins(max_value, num_bins, x):
 def main(argv):
 	# check for correct number of arguments
 	if len(sys.argv) != 4:
-		sys.exit("Usage: lru.py cachesize filename numdevices")
+		sys.exit("Usage: %s cachesize filename numdevices" % argv[0])
 
 	max_pages = int(sys.argv[1]) # max_pages = maximum number of entries in the entire cache
 	in_file = sys.argv[2] # in_file = the file to use as input for requests

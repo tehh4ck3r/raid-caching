@@ -29,7 +29,8 @@ def main(argv):
 
 	# for each line
 	for x in lines:
-		bin_num = bins(max_val, num_devices, x) # get the device that block x would be stored on
+		# bin_num = bins(max_val, num_devices, x) # get the device that block x would be stored on
+		bin_num = x % num_devices # get the device that block x would be stored on
 
 		if x not in cachelist[bin_num]: # if it's not in that device's cache, it's a miss
 			num_misses += 1
@@ -43,7 +44,7 @@ def main(argv):
 			cachelist[bin_num].remove(x)
 			cachelist[bin_num].appendleft(x)
 
-	miss_rate = num_misses / len(lines)
+	miss_rate = float(num_misses) / len(lines)
 	miss_rate *= 100
 	print("Number of misses: %i" % num_misses)
 	print ("Number of input lines: %i" % len(lines))

@@ -34,8 +34,9 @@ def main(argv):
 
 	# for each line
 	for x in lines:
-		bin_num = bins(max_val, num_devices, x) # get the device that block x would be stored on
-
+		# bin_num = bins(max_val, num_devices, x) # get the device that block x would be stored on
+		bin_num = x % num_devices # get the device that block x would be stored on
+		
 		# check if x is in our cache already
 		for y in cachelist[bin_num]:
 			if y.value == x: # we found it! 

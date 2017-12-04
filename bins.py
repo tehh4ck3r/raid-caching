@@ -7,7 +7,7 @@ def bins(max_value, num_bins, x):
 	increment = 0
 
 	for z in range(num_bins):
-		if (0 < x <= increment+bin_size):
+		if (0 <= x <= increment+bin_size):
 			return z
 		else:
 			increment += bin_size

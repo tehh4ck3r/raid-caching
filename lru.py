@@ -1,4 +1,3 @@
-from bins import bins
 import sys
 import collections
 
@@ -25,11 +24,9 @@ def main(argv):
 		cachelist.append(collections.deque(maxlen=max_indiv_cache_size))
 
 	num_misses = 0
-	max_val = max(lines)
 
 	# for each line
 	for x in lines:
-		# bin_num = bins(max_val, num_devices, x) # get the device that block x would be stored on
 		bin_num = x % num_devices # get the device that block x would be stored on
 
 		if x not in cachelist[bin_num]: # if it's not in that device's cache, it's a miss

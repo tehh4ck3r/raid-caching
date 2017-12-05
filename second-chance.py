@@ -1,4 +1,3 @@
-from bins import bins
 import sys
 
 class page:
@@ -42,7 +41,6 @@ def main(argv):
 
 	# for each line
 	for x in lines:
-		# bin_num = bins(max_val, num_devices, x) # get the device that block x would be stored on
 		bin_num = x % num_devices # get the device that block x would be stored on
 
 		found = False 

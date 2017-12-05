@@ -1,4 +1,3 @@
-from bins import bins
 import sys
 import collections
 
@@ -24,17 +23,14 @@ def main(argv):
 	lines = [x.strip() for x in lines] # get rid of newline characters
 	lines = map(int, lines) # make everything into an int
 
-	max_val = max(lines) # get max requested value so we can request the right device later on
-
 	# initialize a list of empty lists to simulate our cache; each sublist = 1 device
-	cachelist = [] 
+	cachelist = []
 	for x in range(num_devices):
 		cache = []
 		cachelist.append(cache) # add the new device to the list
 
 	# for each line
 	for x in lines:
-		# bin_num = bins(max_val, num_devices, x) # get the device that block x would be stored on
 		bin_num = x % num_devices # get the device that block x would be stored on
 		
 		# check if x is in our cache already

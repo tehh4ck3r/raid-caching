@@ -21,7 +21,6 @@ def main(argv):
 	lines = map(int, lines) # make everything into an int
 
 	num_misses = 0
-	max_val = max(lines) # get max value for binning
 
 	cachelist = [] # list containing each device's cache
 	clock = [] # each device has an independent clock
@@ -43,16 +42,13 @@ def main(argv):
 	for x in lines:
 		bin_num = x % num_devices # get the device that block x would be stored on
 
-		found = False 
-
 		# find out if the value is in the cache
-		for y in range(max_indiv_cache_size):
-			if cachelist[bin_num][y].value == x: # we found it!
-				cachelist[bin_num][y].referenced = True # set its referenced flag to True
-				found = True
+		for y in cachelist[bin_num]:
+			if y.value == x: # we found it!
+				y.referenced = True # set its referenced flag to True
 				break
 
-		if not found: # it was a miss
+		else: # it was a miss
 			i = clock[bin_num] # used for incrementing
 			while True:
 				if not cachelist[bin_num][i].referenced: # find the next unreferenced element

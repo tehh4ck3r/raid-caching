@@ -6,8 +6,8 @@ def main(argv):
 	if len(sys.argv) != 3:
 		sys.exit("Usage: %s inputfilename outputfilename" % argv[0])
 
-	filename = sys.argv[2]
-	outfilename = sys.argv[3]
+	filename = sys.argv[1]
+	outfilename = sys.argv[2]
 
 	with open(filename) as file:
 		lines = file.readlines()

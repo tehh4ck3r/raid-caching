@@ -9,13 +9,13 @@ def main(argv):
 	filename = sys.argv[2]
 	outfilename = sys.argv[3]
 
-with open(filename) as file:
-	lines = file.readlines()
+	with open(filename) as file:
+		lines = file.readlines()
 
-with open(outfilename, 'w') as file:
-	for x in lines:
-		file.write(str(lines.index(x)))
-		file.write('\n')
+	with open(outfilename, 'w') as file:
+		for x in lines:
+			file.write(str(lines.index(x)))
+			file.write('\n')
 
 if __name__ == "__main__":
 	main(sys.argv)

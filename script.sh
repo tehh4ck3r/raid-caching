@@ -1,0 +1,2 @@
+# Filters out DiskReadInit system calls. Searches for DiskRead system calls and returns columns 6 (ByteOffset) and 7 (Size). This is passed to another gawk script that adds the two columns together and prints the result modulo 5000 to output.csv
+cat 24.hour.BuildServer.11-28-2007.07-55-PM.trace.csv | grep -v DiskReadInit | gawk --non-decimal-data 'BEGIN {FS = ","} { if ($1 ~ /DiskRead/) if (NR>70) printf "%d,%d\n", $6, $7;}' | gawk 'BEGIN {FS = ","} {print ($1 + $2) % 5000 }' >> output.csv
